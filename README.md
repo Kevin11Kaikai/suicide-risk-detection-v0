@@ -4,11 +4,17 @@ This project is a suicide risk classification pipeline using BERT and psychologi
 
 ## 📦 Project Structure
 suicide-risk-detection-pipeline/
+
 ├── data/ # Dataset (CSV)
+
 ├── models/ # Trained models (saved after training)
+
 ├── scripts/ # CLI entry points: train, evaluate, predict
+
 ├── src/ # Core logic (preprocessing, dataset, model, etc.)
+
 ├── requirements.txt # Dependencies
+
 ├── README.md
 
 
