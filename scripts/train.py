@@ -9,6 +9,7 @@ import argparse
 import pandas as pd
 import torch
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
 from transformers import BertTokenizer
 from src.dataset import create_data_loader
 from src.model import build_model, build_optimizer_scheduler, train_model, evaluate_model, save_model
@@ -93,10 +94,15 @@ def main():
     # Evaluate model on validation set
     print("\n🔍 Evaluating...")
     preds, labels = evaluate_model(model, val_loader, args.device)
-    acc = accuracy_score(actuals, predictions)
-    precision, recall, f1, _ = precision_recall_fscore_support(actuals, predictions, average='weighted')
-    print(f"Accuracy: {acc:.4f}, Precision: {precision:.4f}, Recall: {recall:.4f}, F1: {f1:.4f}")
-    print("Classification Report:", classification_report(actuals, predictions, target_names=["Non-suicidal", "Suicidal"]))
+    #acc = accuracy_score(actuals, predictions)
+    #precision, recall, f1, _ = precision_recall_fscore_support(actuals, predictions, average='weighted')
+    #print(f"Accuracy: {acc:.4f}, Precision: {precision:.4f}, Recall: {recall:.4f}, F1: {f1:.4f}")
+    # Print report
+    print("\n📊 Classification Report:")
+    print(classification_report(labels, preds, target_names=["non-suicide", "suicide"]))
+
+    print("\n🧾 Confusion Matrix:")
+    print(confusion_matrix(labels, preds))
 
     # Save the trained model and tokenizer
     save_model(model, tokenizer, args.save_dir)
