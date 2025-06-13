@@ -31,9 +31,9 @@ suicide-risk-detection-pipeline/
 ### 🔧 Setup (Linux/macOS/Windows):
 
 ```bash
-# Create environment
-python3.9 -m venv .venv
-source .venv/bin/activate    # Windows: .venv\Scripts\activate
+# Create conda environment
+conda create -n suicide-risk python=3.9 -y
+conda activate suicide-risk
 
 # Install dependencies
 pip install -r requirements.txt
