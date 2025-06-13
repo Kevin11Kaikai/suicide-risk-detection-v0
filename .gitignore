@@ -1,2 +1,7 @@
-models/
-data/
+# Ignore contents of these folders
+data/*
+models/*
+
+# But keep the .gitkeep files
+!data/.gitkeep
+!models/.gitkeep
