@@ -61,6 +61,35 @@ python scripts/predict.py --text "I feel like I want to die tomorrow."
 
 ✅ CLI-based modular design
 
+## 📊 Dataset
+
+This project uses the **[Suicide Watch Dataset from Kaggle](https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch)**, which contains Reddit posts labeled as `suicide` or `non-suicide`.
+
+To use this dataset:
+
+1. Visit the Kaggle page: [https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch](https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch)
+2. Download `Suicide_Detection.csv`
+3. Place the file into the `data/` folder of this project
+
+> ⚠️ **Note:** The `data/` folder is excluded from version control via `.gitignore`. You must manually download the dataset before training or evaluating.
+
+---
+
+## 🧠 Model Weights
+
+After training the model using `scripts/train.py`, the model artifacts (e.g., `pytorch_model.bin`, `config.json`, `vocab.txt`) will be saved to the `models/` directory.
+
+> ⚠️ This folder is also ignored by Git to prevent uploading large files.  
+> You are responsible for keeping your trained model locally or uploading it to external hosting (e.g., HuggingFace, Google Drive).
+
+To load a saved model for evaluation or prediction:
+
+```bash
+python scripts/evaluate.py --model_dir models/
+python scripts/predict.py --text "I feel completely hopeless"
+
+
+
 ### Disclaimer
 This model is for educational and research purposes only. It is not a substitute for professional mental health assessment or intervention.
 
